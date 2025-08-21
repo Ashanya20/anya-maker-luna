@@ -1,0 +1,106 @@
+body {
+    background: darkgray;
+    color: rgb(233, 233, 233);
+    font-family: "Courier New", sans-serif;
+
+}
+
+.header {
+    margin: 25px;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: 750;
+    color: rgb(60, 66, 80);
+    text-transform: uppercase;
+    text-shadow: 2px 2px 10px rgb(248, 249, 246);
+}
+
+h2 {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #444d55;
+}
+
+p {
+    text-shadow: 2px 2px 10px #444d55;
+}
+
+section {
+    margin: 50px;
+}
+
+#Me {
+    border-radius: 50%;
+    border: 5px solid rgb(60, 66, 80);
+    box-shadow: 0 4px 8px rgb(248, 249, 246);
+    width: 200px;
+    height: auto;
+}
+
+#About {
+    text-align: center;
+}
+
+.experience {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.experience-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.experience-list li {
+    line-height: 1.8;
+    background-color: #302e36e5;
+    border: 1px solid rgb(233, 233, 233);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 5px rgb(248, 249, 246);
+}
+
+#Code {
+    border: 1px solid rgb(233, 233, 233);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgb(248, 249, 246);
+}
+
+#Connect ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+}
+
+#Connect li {
+    margin: 0;
+}
+
+#Connect a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: rgb(115, 111, 111);
+    font-weight: 600;
+    background: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px #444d55;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+}
