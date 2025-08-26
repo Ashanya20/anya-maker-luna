@@ -1,30 +1,32 @@
 body {
-    background: darkgray;
-    color: rgb(233, 233, 233);
+    background: #2b2b2b;
+    color: #f1f1f1;
     font-family: "Courier New", sans-serif;
-
 }
 
 .header {
-    margin: 25px;
+    margin: 70px 50px 0;
     display: flex;
     align-items: center;
-    gap: 60px;
+    gap: 10px;
 }
 
 h1 {
     font-size: 40px;
     font-weight: 750;
-    color: rgb(60, 66, 80);
+    color: royalblue;
     text-transform: uppercase;
-    text-shadow: 2px 2px 10px rgb(248, 249, 246);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+    flex: 1 1 100%;
+    text-align: center;
+    margin-right: 150px;
 }
 
 h2 {
     text-align: center;
     font-size: 28px;
     font-weight: 700;
-    color: #444d55;
+    color: #d0d0d0;
 }
 
 p {
@@ -33,46 +35,62 @@ p {
 
 section {
     margin: 50px;
+    scroll-margin-top: 80px;
 }
 
 #Me {
     border-radius: 50%;
-    border: 5px solid rgb(60, 66, 80);
-    box-shadow: 0 4px 8px rgb(248, 249, 246);
+    border: 5px solid royalblue;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.4);
     width: 200px;
     height: auto;
-}
-
-#About {
-    text-align: center;
-}
-
-.experience {
-    display: flex;
-    align-items: center;
-    gap: 35px;
-}
-
-.experience-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.experience-list li {
-    line-height: 1.8;
-    background-color: #302e36e5;
-    border: 1px solid rgb(233, 233, 233);
-    border-radius: 8px;
-    padding: 12px 16px;
-    margin-bottom: 12px;
-    box-shadow: 0 2px 5px rgb(248, 249, 246);
 }
 
 #Code {
     border: 1px solid rgb(233, 233, 233);
     border-radius: 8px;
     box-shadow: 0 2px 5px rgb(248, 249, 246);
+}
+
+#About {
+    margin-top: 0;
+    text-align: center;
+}
+
+.experience {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.job {
+    flex: 1 1 300px;
+    background-color: #302e36e5;
+    border: 1px solid rgb(233, 233, 233);
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 5px rgb(248, 249, 246);
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.job-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: royalblue;
+}
+
+.job-date {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.job-desc {
+    margin: 0;
 }
 
 #Connect ul {
@@ -92,15 +110,44 @@ section {
     align-items: center;
     gap: 8px;
     text-decoration: none;
-    color: rgb(115, 111, 111);
+    color: #333;
     font-weight: 600;
-    background: white;
+    background: #f0f0f0;
     padding: 8px 14px;
     border-radius: 6px;
-    box-shadow: 0 2px 5px #444d55;
 }
 
 .icon {
     width: 24px;
     height: 24px;
+}
+
+#Connect a:hover {
+    background: royalblue;
+    color: #f0f0f0;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #2f2f2f;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: #e0e0e0;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: royalblue;
 }
