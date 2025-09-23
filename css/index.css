@@ -212,6 +212,13 @@ nav a:hover {
     color: royalblue;
 }
 
+.footer {
+    padding: .5rem;
+    font-size: 1rem;
+    text-align: left;
+    background: #2f2f2f;
+}
+
 /* Tablet */
 @media (max-width: 900px) {
     .header {

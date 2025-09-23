@@ -1,6 +1,6 @@
-const foot = document.createElement('footer');
-foot.className = 'footer';
-document.body.append(foot);
+const footerElement = document.createElement('footer');
+footerElement.className = 'footer';
+document.body.append(footerElement);
 
 const today = new Date();
 const thisYear = today.getFullYear();
