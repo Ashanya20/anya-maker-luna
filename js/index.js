@@ -1,20 +1,46 @@
-const footerElement = document.createElement('footer');
-footerElement.className = 'footer';
+const footerElement = document.createElement("footer");
+footerElement.className = "footer";
 document.body.append(footerElement);
 
 const today = new Date();
 const thisYear = today.getFullYear();
 
-const footer = document.querySelector('.footer');
-const copyright = document.createElement('p');
+const footer = document.querySelector(".footer");
+const copyright = document.createElement("p");
 copyright.innerHTML = `© Anya Maker ${thisYear}`;
 footer.appendChild(copyright);
 
 const skills = ["JavaScript", "HTML", "CSS", "GitHub", "Functions", "Arrays", "Loops", "DOM"];
-const skillsSection = document.getElementById('Skills');
-const skillsList = skillsSection.querySelector('ul');
+const skillsSection = document.getElementById("Skills");
+const skillsList = skillsSection.querySelector("ul");
 skills.forEach(skill => {
-    const li = document.createElement('li');
+    const li = document.createElement("li");
     li.innerText = skill;
     skillsList.appendChild(li);
 })
+
+const messageForm = document.querySelector("form[name='leave_message']");
+messageForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const usersName = event.target.usersName.value;
+    const email = event.target.email.value;
+    const usersMessage = event.target.usersMessage.value;
+    console.log("Name: ", usersName);
+    console.log("Email: ", email);
+    console.log("Message: ", usersMessage);
+    const messageSection = document.getElementById("Messages");
+    const messageList = messageSection.querySelector("ul");
+    const newMessage = document.createElement("li");
+    newMessage.innerHTML = `<a href="mailto:${email}">${usersName}</a> <span>${usersMessage}</span>`;
+    const removeButton = document.createElement("button");
+    removeButton.innerText = "remove";
+    removeButton.type = "button";
+    removeButton.addEventListener("click", function () {
+        const entry = removeButton.parentNode;
+        entry.remove();
+    });
+    newMessage.appendChild(removeButton);
+    messageList.appendChild(newMessage);
+    event.target.reset();
+});
+
