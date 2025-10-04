@@ -44,3 +44,17 @@ messageForm.addEventListener("submit", function (event) {
     event.target.reset();
 });
 
+fetch("https://api.github.com/users/Ashanya20/repos")
+    .then(response => response.json())
+    .then(repositories => {
+        console.log(repositories);
+        const projectSection = document.getElementById("Projects");
+        const projectList = projectSection.querySelector("ul");
+        for (let i = 0; i < repositories.length; i++) {
+            const project = document.createElement("li");
+            // project.innerText = repositories[i].name.charAt(0).toUpperCase() + repositories[i].name.slice(1);
+            project.innerText = repositories[i].name.toUpperCase();
+            projectList.appendChild(project);
+          }
+    })
+    .catch(error => console.error(error));
