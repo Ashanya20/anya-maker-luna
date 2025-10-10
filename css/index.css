@@ -135,6 +135,34 @@ section {
     margin: 0;
 }
 
+#Projects ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+#Projects li {
+    background: #302e36e5;
+    border: 1px solid rgb(233, 233, 233);
+    border-radius: 8px;
+    padding: 10px 16px;
+    color: royalblue;
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(248, 249, 246, 0.2);
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+}
+
+#Projects li:hover {
+    background: royalblue;
+    color: #f1f1f1;
+}
+
 #Skills ul {
     list-style: none;
     padding: 0;
@@ -374,6 +402,15 @@ form[name="leave_message"] button:hover {
         font-size: 1.2rem;
     }
 
+    #Projects ul {
+        gap: 10px;
+    }
+
+    #Projects li {
+        font-size: 1.1rem;
+        padding: 9px 14px;
+    }
+
     #Skills ul {
         grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
         gap: 20px;
@@ -384,12 +421,26 @@ form[name="leave_message"] button:hover {
     }
 
     nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
         gap: 10px;
+        padding: 0 1rem;
+        margin: 0 auto;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    nav li {
+        flex: 1 1 auto;
+        text-align: center;
     }
 
     nav a {
         font-size: 1rem;
         padding: 4px 8px;
+        display: block;
     }
 
     #Connect a {
@@ -465,6 +516,17 @@ form[name="leave_message"] button:hover {
 
     .job-title {
         font-size: 1.1rem;
+    }
+
+    #Projects ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+    }
+
+    #Projects li {
+        width: 60%;
+        font-size: 1rem;
     }
 
     #Skills ul {

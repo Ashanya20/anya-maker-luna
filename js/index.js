@@ -44,3 +44,54 @@ messageForm.addEventListener("submit", function (event) {
     event.target.reset();
 });
 
+fetch("https://api.github.com/users/Ashanya20/repos")
+    .then(response => {
+        // Handle HTTP errors
+        if (!response.ok) {
+          throw new Error(`GitHub API error: ${response.status} ${response.statusText}`);
+        }
+        return response.json();
+      })
+    .then(repositories => {
+        console.log(repositories);
+        const projectSection = document.getElementById("Projects");
+        if (!projectSection) {
+            throw new Error("Projects section not found in DOM");
+        }
+        const projectList = projectSection.querySelector("ul");
+        if (!projectList) {
+            throw new Error("Project list (ul) not found");
+        }
+        // Validate API response
+        if (!Array.isArray(repositories)) {
+            throw new Error("Invalid response format from GitHub API");
+        }
+        // Clear any existing content (including old errors)
+        projectList.innerHTML = '';
+        // Remove any existing error messages
+        const oldError = projectSection.querySelector('.error-message');
+        if (oldError) {
+            oldError.remove();
+        }
+        repositories.forEach(repo => {
+            const project = document.createElement("li");
+            project.innerText = repo.name.toUpperCase();
+            projectList.appendChild(project);
+        });
+        console.log("Successfully loaded repositories:", repositories);
+    })
+    .catch(error => {
+        console.error("Failed to load repositories:", error);
+        // Show user-friendly error message
+        const projectSection = document.getElementById("Projects");
+        if (projectSection) {
+            // Check if error message already exists
+            let errorMsg = projectSection.querySelector('.error-message');
+            if (!errorMsg) {
+                errorMsg = document.createElement('p');
+                errorMsg.className = 'error-message';
+                projectSection.appendChild(errorMsg);
+            }
+            errorMsg.textContent = 'Unable to load projects. Please try again later.';
+        }
+    });
