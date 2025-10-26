@@ -81,6 +81,8 @@ section {
 #About {
     margin-top: 0;
     text-align: center;
+    width: 95%;
+    box-sizing: border-box;
 }
 
 .about {
@@ -160,6 +162,18 @@ section {
 
 #Projects li:hover {
     background: royalblue;
+    color: #f1f1f1;
+}
+
+#Projects li a {
+    color: royalblue;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#Projects li:hover a {
     color: #f1f1f1;
 }
 
@@ -568,9 +582,11 @@ form[name="leave_message"] button:hover {
 
     form[name="leave_message"] {
         margin: 0 auto;
+        width: 90%;
         max-width: 380px;
         padding: 1.3rem;
         gap: 0.8rem;
+        box-sizing: border-box;
     }
 
     form[name="leave_message"] input {

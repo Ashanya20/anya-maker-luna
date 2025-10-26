@@ -6,6 +6,7 @@
     <meta charset="UTF-8" />
     <meta name="keywords" content="HTML, CSS, JavaScript">
     <meta name="author" content="Anya Maker" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/index.css" rel="stylesheet">
     <script defer src="js/index.js"></script>
 </head>
@@ -91,12 +92,12 @@
         <h2>Leave a Message</h2>
         <form name="leave_message">
             <label for="usersName">Name:</label>
-            <input type="text" id="usersName" name="usersName" required="true">
+            <input type="text" id="usersName" name="usersName" autocomplete="name" required="true">
             <label for="email">Email:</label>
-            <input type="email" id="email" name="usersEmail" required="true">
+            <input type="email" id="email" name="usersEmail" autocomplete="email" required="true">
             <label for="usersMessage">Message:</label>
             <textarea name="usersMessage" id="usersMessage" required="true"></textarea>
-            <button type="submit">"Submit"</button>
+            <button type="submit">Submit</button>
         </form>
     </section>
 

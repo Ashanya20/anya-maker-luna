@@ -1,3 +1,4 @@
+// Copyright logo
 const footerElement = document.createElement("footer");
 footerElement.className = "footer";
 document.body.append(footerElement);
@@ -10,6 +11,7 @@ const copyright = document.createElement("p");
 copyright.innerHTML = `© Anya Maker ${thisYear}`;
 footer.appendChild(copyright);
 
+// List of skills
 const skills = ["JavaScript", "HTML", "CSS", "GitHub", "Functions", "Arrays", "Loops", "DOM"];
 const skillsSection = document.getElementById("Skills");
 const skillsList = skillsSection.querySelector("ul");
@@ -19,6 +21,7 @@ skills.forEach(skill => {
     skillsList.appendChild(li);
 })
 
+// Message form
 const messageForm = document.querySelector("form[name='leave_message']");
 messageForm.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -31,6 +34,7 @@ messageForm.addEventListener("submit", function (event) {
     const messageSection = document.getElementById("Messages");
     const messageList = messageSection.querySelector("ul");
     const newMessage = document.createElement("li");
+    // Clickable link
     newMessage.innerHTML = `<a href="mailto:${email}">${usersName}</a> <span>${usersMessage}</span>`;
     const removeButton = document.createElement("button");
     removeButton.innerText = "remove";
@@ -38,20 +42,39 @@ messageForm.addEventListener("submit", function (event) {
     removeButton.addEventListener("click", function () {
         const entry = removeButton.parentNode;
         entry.remove();
+        toggleMessageSection();
     });
-    newMessage.appendChild(removeButton);
-    messageList.appendChild(newMessage);
+    newMessage.appendChild(removeButton); // remove button
+    messageList.appendChild(newMessage); // display  message
     event.target.reset();
+    toggleMessageSection();
 });
 
+// Hide/Show Messages section depending on messages
+function toggleMessageSection() {
+    const messageSection = document.getElementById("Messages");
+    const messageList = messageSection.querySelector("ul");
+    const messageHeading = messageSection.querySelector("h2");
+
+    if (messageList.children.length === 0) {
+        messageHeading.style.display = "none";
+        messageList.style.display = "none";
+    } else {
+        messageHeading.style.display = "block";
+        messageList.style.display = "block";
+    }
+}
+toggleMessageSection(); // hide Messages section if empty
+
+// API fetch, insert names of my GitHub repos into Projects section
 fetch("https://api.github.com/users/Ashanya20/repos")
     .then(response => {
         // Handle HTTP errors
         if (!response.ok) {
-          throw new Error(`GitHub API error: ${response.status} ${response.statusText}`);
+            throw new Error(`GitHub API error: ${response.status} ${response.statusText}`);
         }
         return response.json();
-      })
+    })
     .then(repositories => {
         console.log(repositories);
         const projectSection = document.getElementById("Projects");
@@ -75,7 +98,12 @@ fetch("https://api.github.com/users/Ashanya20/repos")
         }
         repositories.forEach(repo => {
             const project = document.createElement("li");
-            project.innerText = repo.name.toUpperCase();
+            // Create clickable links for each Project
+            const link = document.createElement("a");
+            link.href = repo.html_url;
+            link.textContent = repo.name.toUpperCase();
+            link.target = "_blank"; // open in new tab
+            project.appendChild(link);
             projectList.appendChild(project);
         });
         console.log("Successfully loaded repositories:", repositories);
